@@ -1,0 +1,19 @@
+﻿AmountOfGold: 0, 15, 16
+AmountOfHiddenGold: 0, 4, 5, 10, 11
+CanRevealHidden: true, false
+
+PlayerPositionType: Valid, OutsideMap, Barrier
+RevealItemPositionType: Valid, OutsideMap, Barrier
+
+MoveDirection: Up, Down, Left, Right, Front, Back
+TargetPositionType: Standard, OutsideMap, Barrier, HiddenWithoutReveal, HiddenWithReveal
+
+PositionType: Standard, OutsideMap, Barrier, Hidden
+CanRevealHidden: true, false
+
+IF [PositionType] <> "Hidden" THEN [CanRevealHidden] = "false";
+
+TileType: Standard, Hidden
+TileContent: Empty, Gold, RevealHiddenItem
+
+IF [TileType] = "Hidden" THEN [TileContent] <> "RevealHiddenItem";
